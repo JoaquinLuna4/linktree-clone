@@ -1,19 +1,33 @@
 import { get } from "https"
+import Link  from "next/link";
 import api from "../api"
 
 export default async function Home() {
-  const links = await api.links.fetch()
-  console.log(links);
+  // const users = await api.user.list()
+   const links = await api.links.fetch()
+
   return (
-    <main>
+    // <main>
+    //   <h1>Joaquito</h1>
+    //   <ul>
+    //   {users.map((user)=>(
+    //     <li key={user.url}>
+    //     <Link href={`/${user.slug}`}> {user.slug}</Link>
+    //   </li >
+    //   ))}
+    // </ul>
+    // </main>
+
+<main>
       <h1>Joaquito</h1>
       <ul>
       {links.map((link)=>(
-        <li key={link.URL}>
-        <a href={link.URL}>{link.LABEL}</a>
+        <li key={link.url}>
+        <a href={link.url}>{link.label}</a>
       </li >
       ))}
     </ul>
     </main>
+
   )
 }
