@@ -1,4 +1,5 @@
 import api from "@/api"
+
 import { notFound } from "next/navigation"
 type Props = {
     params : {
@@ -19,18 +20,21 @@ export default async function Slug({params: {slug}} : Props ) {
  }
 
 //Toma como parametro la url del user que tenga 
+const links = await api.links.fetch(user.url)
 
- const links = await api.links.fetch(user.url)
-
+const name = await user.slug
   return (
-<main>
-      <ul>
+<div className="container_info">
+     
+     
+      <ul  className="card_user ">
+      <h1 className="center">{name}</h1>
       {links.map((link)=>(
-        <li key={link.url}>
+        <li key={link.url} className="card_link">
         <a href={link.url}>{link.label}</a>
       </li >
       ))}
     </ul>
-    </main>
+    </div >
   )
 }
