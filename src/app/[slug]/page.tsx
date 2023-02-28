@@ -1,5 +1,6 @@
 import api from "@/api"
-
+import "../../../styles/globals.css"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 type Props = {
     params : {
@@ -31,7 +32,11 @@ const name = await user.slug
       <h1 className="center">{name}</h1>
       {links.map((link)=>(
         <li key={link.url} className="card_link">
-        <a href={link.url}>{link.label}</a>
+        <Link href={link.url} legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer">
+          {link.label}
+        </a>
+        </Link>
       </li >
       ))}
     </ul>

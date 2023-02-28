@@ -1,17 +1,19 @@
-// app/page.tsx
-import { Link } from '@chakra-ui/next-js'
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import api from "../api"
+import "../../styles/globals.css"
+import Link from "next/link"
 
-export default async function Page() {
-   const users = await api.user.list()
+export default function About() {
 
   return (
-    <Link href='/about' color='blue.400' _hover={{ color: 'blue.500' }}>
-        
-        
-     
-      About
-    </Link>
+    <main className="container_info">
+    
+      <h1 className="center">Usuarios</h1>
+      <Link href="https://twitter.com/" legacyBehavior>
+  <a target="_blank" rel="noopener noreferrer" className='link-item'>
+    tuiter
+  </a>
+</Link>
+<Link href="https://facebook.com" target="_blank"> Facebook </Link>
+    </main>
+
   )
 }
