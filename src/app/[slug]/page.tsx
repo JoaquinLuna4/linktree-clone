@@ -19,21 +19,29 @@ export default async function Slug({params: {slug}} : Props ) {
  }
 //Tomo como parametro la url del user que tenga 
 const links = await api.links.fetch(user.url)
-
+const urlImage = "https://pbs.twimg.com/profile_images/1630889864559206401/zHnSfqL7_400x400.jpg"
 const name = await user.slug
-console.log(links)
+
+
+const filter =  (Object.values(links[0])).splice(2, 1).toString();
+console.log(filter);
+
+// console.log(filter, "fiflterers");
 
   return (
 <div className="container_info">
 
       <ul className="card_user ">
+        <img className="profile_img center" src={filter} alt="imagen" />
         <h1 className="center">{name}</h1>
         {links.map((link)=>(
           <li key={link.url} className="card_link">
+           
             <Link href={link.url} legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
               {link.label}
               </a>
+
             </Link>
           </li >
         ))}

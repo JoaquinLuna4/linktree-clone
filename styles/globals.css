@@ -48,3 +48,9 @@ li > a{
     margin: auto;
     width: 33%;  
 }
+.profile_img{
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    margin: auto
+}

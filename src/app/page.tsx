@@ -11,6 +11,7 @@ export default async function Home() {
         <h1 className="center">Usuarios</h1>
         {users.map((user)=>(
         <li key={user.url} className="card_link">
+          
         <Link href={`${user.slug}`} className="center" >{user.slug}</Link>
         </li >
         ))}

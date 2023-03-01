@@ -2,6 +2,7 @@ import Papa from "papaparse"
 type Link =  {
     label: "string";
     url: "string";
+    img: "string";
   }
 type User =  {
     slug: "string";
